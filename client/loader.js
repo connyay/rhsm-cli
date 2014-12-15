@@ -7,7 +7,7 @@
     'use strict';
 
     window.require.config({
-      baseUrl: '/labs/rhlabsangular'
+      baseUrl: '/labs/rhsmCli'
     });
 
     if (!window.LABS_DEBUG) {
@@ -43,7 +43,7 @@
       // Bootstrap angular app
       angular.bootstrap(document, ['rhsmCliApp']);
       // Fade in main element
-      jq('#rhlabsangular').fadeIn();
+      jq('#rhsmCli').fadeIn();
     });
 
   });
