@@ -472,8 +472,7 @@ module.exports = function(grunt) {
             '<%= yeoman.client %>/bower_components',
             '<%= yeoman.client %>/app',
             '<%= yeoman.client %>/components'
-          ],
-          compass: true
+          ]
         },
         files: {
           '.tmp/app/app.css': '<%= yeoman.client %>/app/app.scss'
