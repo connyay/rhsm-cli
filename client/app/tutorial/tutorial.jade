@@ -1,0 +1,44 @@
+.container-fluid.tutorial-container
+  #leftside.col-md-3
+    #return-back
+      a(href='#')
+        i.icon-arrow-left  
+        | Back
+    hr
+    #step-indicator
+      span Step {{current.number}}
+    hr
+    #progress-indicator.text-center
+      span.progress-marker(ng-repeat='step in steps')
+        svg(xmlns='http://www.w3.org/2000/svg', version='1.1', style='width:30px; height:30px;', ng-click='changeStep(step.number)')
+          circle(cx='50%', cy='50%', r='50%', fill='#008BB8')
+          text(x='50%', dy='50%', text-anchor='middle', dominant-baseline='central', fill='white') {{step.number}}
+    hr
+    #instructions.text.body
+      h3 Docker Engine parts
+      | The Docker Engine consists of two parts: a daemon, a server process that
+      | manages all the containers, and a client, which acts as a remote control
+      | for the daemon.
+    #assignment.text.body
+      h3 Assignment
+      | Check which version of Docker is running. This will verify that the
+      | daemon is running and that you can connect to it. If you can see the
+      | version number you know you are all set.
+    hr
+    #command
+      .text
+        h3
+          i.icon-question-sign
+          | Show the answer
+        #commandShownText.hidden docker version
+    hr
+    #tips
+      .tiptext
+        h3 Tips
+        #tipShownText
+          | Try typing
+          code docker
+          | to see the full list of accepted arguments. This emulator provides only a limited set of shell and Docker commands, so some commands may not work as expected.
+    #ajax .
+  #rightside.col-md-9
+    terminal

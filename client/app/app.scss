@@ -1,0 +1,16 @@
+$fa-font-path: "/bower_components/font-awesome/fonts";
+
+@import 'font-awesome/scss/font-awesome';
+
+/**
+ * App-wide Styles
+ */
+
+.rh-navbar {
+    padding-bottom: 25px;
+}
+// Component styles are injected through grunt
+// injector
+@import 'main/main.scss';
+@import 'tutorial/tutorial.scss';
+// endinjector
