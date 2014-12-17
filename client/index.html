@@ -15,10 +15,6 @@
       window.deps = [];
       <!-- build:js(client) app/vendor.js -->
         <!-- bower:js -->
-        /*<script src="bower_components/angular-resource/angular-resource.js"/>*/
-        window.deps.push("bower_components/angular-resource/angular-resource");
-        /*<script src="bower_components/angular-cookies/angular-cookies.js"/>*/
-        window.deps.push("bower_components/angular-cookies/angular-cookies");
         /*<script src="bower_components/angular-sanitize/angular-sanitize.js"/>*/
         window.deps.push("bower_components/angular-sanitize/angular-sanitize");
         /*<script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"/>*/
@@ -27,11 +23,15 @@
         window.deps.push("bower_components/lodash/dist/lodash.compat");
         /*<script src="bower_components/angular-ui-router/release/angular-ui-router.js"/>*/
         window.deps.push("bower_components/angular-ui-router/release/angular-ui-router");
-        <!-- endbower -->
         /*<script src="bower_components/jquery.terminal/js/jquery.mousewheel-min.js"/>*/
         window.deps.push("bower_components/jquery.terminal/js/jquery.mousewheel-min");
         /*<script src="bower_components/jquery.terminal/js/jquery.terminal-0.8.8.min.js"/>*/
         window.deps.push("bower_components/jquery.terminal/js/jquery.terminal-0.8.8.min");
+        /*<script src="bower_components/sweetalert/lib/sweet-alert.js"/>*/
+        window.deps.push("bower_components/sweetalert/lib/sweet-alert");
+        /*<script src="bower_components/angular-sweetalert/SweetAlert.js"/>*/
+        window.deps.push("bower_components/angular-sweetalert/SweetAlert");
+        <!-- endbower -->
       <!-- endbuild -->
 
       <!-- build:js({.tmp,client}) app/app.js -->
@@ -63,6 +63,7 @@
     <script type="text/javascript" src="loader.js?bust=0.0.2"></script>
     <!-- build:css(client) app/vendor.css -->
       <!-- bower:css -->
+      <link rel="stylesheet" href="bower_components/sweetalert/lib/sweet-alert.css" />
       <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css({.tmp,client}) app/app.css -->

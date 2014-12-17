@@ -1,8 +1,6 @@
 (function() {
-
-
   'use strict';
-
+  var webTerminal;
   angular.module('rhsmCliApp')
     .constant('TERM_SETTINGS', {
       prompt: 'you@tutorial:~$ ',
@@ -14,7 +12,10 @@
         restrict: 'EA',
         replace: true,
         link: function(scope, element, attrs) {
-          element.terminal(interpreter.base, TERM_SETTINGS);
+          webTerminal = element.terminal(interpreter.base, TERM_SETTINGS);
+          scope.$on('termFocus', function() {
+            webTerminal.focus();
+          });
         }
       };
     });

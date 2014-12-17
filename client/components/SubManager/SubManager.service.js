@@ -73,7 +73,7 @@
   }];
 
   angular.module('rhsmCliApp')
-    .factory('SubManager', function(questions) {
+    .factory('SubManager', function(questions, $rootScope) {
       function SubManager(inputs, term) {
         var current = questions.getCurrent();
         var echo = term.echo;
@@ -82,7 +82,7 @@
           return this.finishedCallback(inputs);
         };
         if (angular.equals(inputs, current.command_expected)) {
-          alert('Correct answer...');
+          $rootScope.$emit('correctAnswer');
         }
         var command = inputs[1];
         if (!inputs[1]) {

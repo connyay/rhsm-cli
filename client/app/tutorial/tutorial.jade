@@ -9,7 +9,7 @@
       span Step {{currentStep.number}}
     hr
     #progress-indicator.text-center
-      span.progress-marker(ng-repeat='step in steps')
+      span.progress-marker(ng-repeat='step in steps', ng-class='{active: step.number === currentStep.number}')
         svg(xmlns='http://www.w3.org/2000/svg', version='1.1', style='width:30px; height:30px;', ng-click='changeStep(step.number)')
           circle(cx='50%', cy='50%', r='50%', fill='#008BB8')
           text(x='50%', dy='50%', text-anchor='middle', dominant-baseline='central', fill='white') {{step.number}}

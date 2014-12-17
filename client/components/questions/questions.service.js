@@ -65,7 +65,7 @@
     });
 
     q.push({
-      html: '<h3>Blah blah #3</h3>RHSM Step 4',
+      html: '<h3>Blah blah #4</h3>RHSM Step 4',
       assignment: 'List available subscriptions',
       tip: "<p>Try typing <code>subscription-manager</code> to see the full list of accepted arguments</p>",
       command_expected: ['subscription-manager', 'list', '--available'],
@@ -73,7 +73,7 @@
     });
 
     q.push({
-      html: '<h3>Blah blah #3</h3>RHSM Step 5',
+      html: '<h3>Blah blah #5</h3>RHSM Step 5',
       assignment: 'Subscribe a system with a specific subscription pool IDs (stacking multiple)',
       tip: "<p>Try typing <code>subscription-manager</code> to see the full list of accepted arguments</p>",
       command_expected: ['subscription-manager', 'attach', '--pool='],
@@ -81,7 +81,7 @@
     });
 
     q.push({
-      html: '<h3>Blah blah #3</h3>RHSM Step 6',
+      html: '<h3>Blah blah #6</h3>RHSM Step 6',
       assignment: 'Unsubscribe all system subscriptions',
       tip: "<p>Try typing <code>subscription-manager</code> to see the full list of accepted arguments</p>",
       command_expected: ['subscription-manager', 'remove', '--all'],
@@ -89,7 +89,7 @@
     });
 
     q.push({
-      html: '<h3>Blah blah #3</h3>RHSM Step 7',
+      html: '<h3>Blah blah #7</h3>RHSM Step 7',
       assignment: 'Unsubscribe a specific subscription serial',
       tip: "<p>Try typing <code>subscription-manager</code> to see the full list of accepted arguments</p>",
       command_expected: ['subscription-manager', 'remove', '--serial='],
@@ -109,7 +109,7 @@
     });
 
     q.push({
-      html: '<h3>Blah blah #1</h3>RHSM Step 2',
+      html: '<h3>Blah blah #2</h3>RHSM Step 2',
       assignment: 'List consumed subscriptions',
       tip: "<p>Try typing <code>subscription-manager</code> to see the full list of accepted arguments</p>",
       command_expected: ['subscription-manager', 'list', '--consumed'],
@@ -117,7 +117,7 @@
     });
 
     q.push({
-      html: '<h3>Blah blah #1</h3>RHSM Step 3',
+      html: '<h3>Blah blah #3</h3>RHSM Step 3',
       assignment: 'Configuring subscription manager behavior',
       tip: "<p>Try typing <code>subscription-manager</code> to see the full list of accepted arguments</p>",
       command_expected: ['subscription-manager', 'config', '--server.hostname=subscription.example.com'],
@@ -138,7 +138,7 @@
     });
 
     q.push({
-      html: '<h3>Blah blah #1</h3>RHSM Step 2',
+      html: '<h3>Blah blah #2</h3>RHSM Step 2',
       assignment: 'Enabling a repository',
       tip: "<p>Try typing <code>subscription-manager</code> to see the full list of accepted arguments</p>",
       command_expected: ['subscription-manager', 'repos', '--enable', 'rhel-6-server-optional-rpms'],
@@ -146,7 +146,7 @@
     });
 
     q.push({
-      html: '<h3>Blah blah #1</h3>RHSM Step 2',
+      html: '<h3>Blah blah #3</h3>RHSM Step 2',
       assignment: 'Disabling a repository',
       tip: "<p>Try typing <code>subscription-manager</code> to see the full list of accepted arguments</p>",
       command_expected: ['subscription-manager', 'repos', '--disable', 'rhel-6-server-optional-rpms'],

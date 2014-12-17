@@ -1,11 +1,10 @@
 'use strict';
 
 angular.module('rhsmCliApp', [
-  'ngCookies',
-  'ngResource',
   'ngSanitize',
   'ui.router',
-  'ui.bootstrap'
+  'ui.bootstrap',
+  'oitozero.ngSweetAlert'
 ])
   .config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
     $urlRouterProvider

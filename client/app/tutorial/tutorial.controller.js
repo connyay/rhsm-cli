@@ -1,6 +1,6 @@
 'use strict';
 angular.module('rhsmCliApp')
-  .controller('TutorialCtrl', function($scope, $stateParams, questions) {
+  .controller('TutorialCtrl', function($scope, $rootScope, $stateParams, questions, SweetAlert) {
     angular.element(document.body).addClass('tutorial-active');
     $scope.steps = [];
     var qs = questions.getQuestions($stateParams.tutorial);
@@ -11,6 +11,7 @@ angular.module('rhsmCliApp')
         question: q
       });
     });
+
     function setCurrent() {
       questions.setCurrent($scope.currentStep.question);
     }
@@ -22,7 +23,22 @@ angular.module('rhsmCliApp')
       $scope.currentStep = $scope.steps[number - 1];
       setCurrent();
     };
+    $scope.nextStep = function() {
+      $scope.changeStep($scope.currentStep.number + 1);
+      $scope.$digest();
+      $rootScope.$broadcast('termFocus');
+    };
     $scope.toggleAnswer = function() {
       $scope.answerHidden = !$scope.answerHidden;
+      $rootScope.$broadcast('termFocus');
     };
+    var doneFn = $scope.nextStep;
+    $rootScope.$on('correctAnswer', function() {
+      SweetAlert.swal({
+        title: 'Good job!',
+        text: 'You got it right!',
+        type: 'success',
+        confirmButtonText: 'Next →'
+      }, doneFn);
+    });
   });
