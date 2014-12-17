@@ -1,9 +1,8 @@
 /*global document, window, angular*/
 (function() {
   window.chrometwo_require([
-    'angular128',
     'jquery'
-  ], function(angular, jq) {
+  ], function(jq) {
     'use strict';
 
     window.require.config({

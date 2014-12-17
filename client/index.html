@@ -15,8 +15,12 @@
       window.deps = [];
       <!-- build:js(client) app/vendor.js -->
         <!-- bower:js -->
+        /*<script src="bower_components/angular/angular.js"/>*/
+        window.deps.push("bower_components/angular/angular");
         /*<script src="bower_components/angular-sanitize/angular-sanitize.js"/>*/
         window.deps.push("bower_components/angular-sanitize/angular-sanitize");
+        /*<script src="bower_components/angular-animate/angular-animate.js"/>*/
+        window.deps.push("bower_components/angular-animate/angular-animate");
         /*<script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"/>*/
         window.deps.push("bower_components/angular-bootstrap/ui-bootstrap-tpls");
         /*<script src="bower_components/lodash/dist/lodash.compat.js"/>*/
@@ -77,7 +81,7 @@
     <div id="chrometwo">
       <div id="chromed-app-content">
         <div id="rhsmCli" style="display: none;">
-          <div ui-view=""></div>
+          <div ui-view="" class="animate-fade-up"></div>
         </div>
       </div>
     </div>
