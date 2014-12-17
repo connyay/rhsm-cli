@@ -21,8 +21,8 @@
     hr
     #command
       .text
-        a.h3(ng-click='toggleAnswer()')
-          i.icon-question-sign
+        span.icon-help 
+        a.h4(ng-click='toggleAnswer()')
           | Show the answer
         #commandShownText(ng-hide='answerHidden')
           code {{currentStep.question.command_expected|codeArray}}
