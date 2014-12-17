@@ -1,13 +1,13 @@
 $fa-font-path: "/bower_components/font-awesome/fonts";
 
 @import 'font-awesome/scss/font-awesome';
-
+@import url(//fonts.googleapis.com/css?family=Droid+Sans+Mono);
 /**
  * App-wide Styles
  */
 
-.rh-navbar {
-    padding-bottom: 25px;
+.cmd, .terminal {
+  font-family: 'Droid Sans Mono', monospace !important;
 }
 // Component styles are injected through grunt
 // injector
