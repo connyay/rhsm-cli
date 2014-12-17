@@ -74,6 +74,17 @@
   }
 }
 
+@-webkit-keyframes fade-in { 0% {opacity: 0;} 100% {opacity: 1;} }
+@-moz-keyframes fade-in { 0% {opacity: 0;} 100% {opacity: 1;} }
+@-o-keyframes fade-in { 0% {opacity: 0;} 100% {opacity: 1;} }
+@keyframes fade-in { 0% {opacity: 0;} 100% {opacity: 1;} }
+
+.ng-animate.change {
+  -webkit-animation: 1s fade-in;
+  -moz-animation: 1s fade-in;
+  -o-animation: 1s fade-in;
+  animation: 1s fade-in;
+}
 
 .terminal .terminal-output .format, .cmd .format,
 .cmd .prompt, .cmd .prompt div, .terminal .terminal-output div div{

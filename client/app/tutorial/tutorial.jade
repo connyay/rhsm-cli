@@ -14,7 +14,7 @@
           circle(cx='50%', cy='50%', r='50%', fill='#008BB8')
           text(x='50%', dy='50%', text-anchor='middle', dominant-baseline='central', fill='white') {{step.number}}
     hr
-    #instructions.text.body(ng-bind-html='currentStep.question.html')
+    #instructions.text.body(ng-bind-html='currentStep.question.html', fade-on-change='currentStep.question.html')
     #assignment.text.body
       h3 Assignment
       div(ng-bind-html='currentStep.question.assignment')

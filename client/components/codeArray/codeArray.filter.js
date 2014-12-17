@@ -3,6 +3,8 @@
 angular.module('rhsmCliApp')
   .filter('codeArray', function() {
     return function(input) {
-      return input.join(' ');
+      if (input && input.join) {
+        return input.join(' ');
+      }
     };
   });
