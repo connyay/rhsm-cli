@@ -33,12 +33,15 @@ angular.module('rhsmCliApp')
       $rootScope.$broadcast('termFocus');
     };
     var doneFn = $scope.nextStep;
-    $rootScope.$on('correctAnswer', function() {
+    var correctAnswerDeregister = $rootScope.$on('correctAnswer', function() {
       SweetAlert.swal({
         title: 'Good job!',
         text: 'You got it right!',
         type: 'success',
         confirmButtonText: 'Next →'
       }, doneFn);
+    });
+    $scope.$on('$destroy', function() {
+      correctAnswerDeregister();
     });
   });

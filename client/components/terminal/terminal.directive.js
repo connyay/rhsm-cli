@@ -13,8 +13,13 @@
         replace: true,
         link: function(scope, element, attrs) {
           webTerminal = element.terminal(interpreter.base, TERM_SETTINGS);
-          scope.$on('termFocus', function() {
+          var focusDeregister = scope.$on('termFocus', function() {
             webTerminal.focus();
+          });
+
+          scope.$on('$destroy', function() {
+            webTerminal.destroy();
+            focusDeregister();
           });
         }
       };
