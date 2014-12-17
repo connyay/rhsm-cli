@@ -7,15 +7,14 @@ angular.module('rhsmCliApp')
     };
     // Public API here
     return {
-      base: function(input, term) {
-        var inputs = input.split(' ');
-        var command = inputs[0];
-        if (command === 'subscription-manager') {
-          SubManager(inputs, term);
-        } else if (command) {
-          term.echo('' + inputs[0] + ': command not found');
+      base: function(command, term) {
+        var cmd = $.terminal.splitCommand(command);
+        if (cmd.name === 'subscription-manager') {
+          SubManager(cmd, term);
+        } else if (cmd) {
+          term.echo('' + cmd.name + ': command not found');
         }
-        return immediateCallback(inputs);
+        return immediateCallback(cmd);
       }
     };
   });

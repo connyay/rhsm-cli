@@ -74,20 +74,19 @@
 
   angular.module('rhsmCliApp')
     .factory('SubManager', function(questions, $rootScope) {
-      function SubManager(inputs, term) {
+      function SubManager(cmd, term) {
         var current = questions.getCurrent();
         var echo = term.echo;
         var insert = term.insert;
         var callback = function() {
-          return this.finishedCallback(inputs);
+          return this.finishedCallback(cmd);
         };
-        if (angular.equals(inputs, current.command_expected)) {
+        if (angular.equals([cmd.name].concat(cmd.args), current.command_expected)) {
           $rootScope.$emit('correctAnswer');
         }
-        var command = inputs[1];
-        if (!inputs[1]) {
+        if (!cmd.args.length) {
           echo(usage());
-        } else if (inputs[1] === 'version') {
+        } else if (cmd.args[0] === 'version') {
           echo(version());
         }
       }
