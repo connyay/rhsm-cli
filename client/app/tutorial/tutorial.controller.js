@@ -3,7 +3,9 @@ angular.module('rhsmCliApp')
   .controller('TutorialCtrl', function($scope, $rootScope, $stateParams, questions, SweetAlert) {
     angular.element(document.body).addClass('tutorial-active');
     $scope.steps = [];
-    var qs = questions.getQuestions($stateParams.tutorial);
+    var tutorial = questions.getTutorial($stateParams.tutorial);
+    var qs = tutorial.questions;
+    $scope.tutorialName = tutorial.name;
     angular.forEach(qs, function(q, index) {
       $scope.steps.push({
         number: index + 1,

@@ -14,20 +14,29 @@
     .factory('questions', function(EVENT_TYPES) {
       var currentQuestion = {};
       var tutorialMap = {
-        'regandsub': regAndSub(),
-        'about': about(),
-        'repos': repos()
+        'regandsub': {
+          name: 'Registration and Subscription',
+          questions: regAndSub()
+        },
+        'about': {
+          name: 'About your system',
+          questions: about()
+        },
+        'repos': {
+          name: 'Working with repositories',
+          questions: repos()
+        }
       };
 
 
 
       // Public API here
       return {
-        getQuestions: function(tutorial) {
+        getTutorial: function(tutorial) {
           if (tutorialMap[tutorial]) {
             return tutorialMap[tutorial];
           }
-          return [];
+          return {};
         },
         getCurrent: function() {
           return currentQuestion;
@@ -41,15 +50,15 @@
   function regAndSub() {
     var q = [];
     q.push({
-      html: '<h3>Blah blah #1</h3>RHSM Step 1',
-      assignment: 'Register and Subscribe in one command',
-      tip: "<p>Try typing <code>subscription-manager</code> to see the full list of accepted arguments</p>",
-      command_expected: ['subscription-manager', 'register', '--auto-attach'],
+      about: 'The most common process for using RHSM is to register and subscribe your system in a single command. ' +
+        'This two step process, registration and then subscription, is consolidated into a single command and covers most use cases.',
+      assignment: 'Register and subscribe automatically. Use the username \'redhat\' and the password \'LearningFun1!\'. The command should look like this:',
+      command_expected: ['subscription-manager', 'register', '--auto-attach', '--username=redhat', '--password=LearningFun1!'],
       result: "<p>Correct</p>"
     });
 
     q.push({
-      html: '<h3>Blah blah #2</h3>RHSM Step 2',
+      about: 'Step 2 about',
       assignment: 'Register only',
       tip: "<p>Try typing <code>subscription-manager</code> to see the full list of accepted arguments</p>",
       command_expected: ['subscription-manager', 'register'],
@@ -57,15 +66,14 @@
     });
 
     q.push({
-      html: '<h3>Blah blah #3</h3>RHSM Step 3',
+      about: 'Step 3 about',
       assignment: 'Subscribe a system automatically',
-      tip: "<p>Try typing <code>subscription-manager</code> to see the full list of accepted arguments</p>",
       command_expected: ['subscription-manager', 'attach', '--auto'],
       result: "<p>Correct</p>"
     });
 
     q.push({
-      html: '<h3>Blah blah #4</h3>RHSM Step 4',
+      about: 'Step 4 about',
       assignment: 'List available subscriptions',
       tip: "<p>Try typing <code>subscription-manager</code> to see the full list of accepted arguments</p>",
       command_expected: ['subscription-manager', 'list', '--available'],
@@ -73,15 +81,14 @@
     });
 
     q.push({
-      html: '<h3>Blah blah #5</h3>RHSM Step 5',
+      about: 'Step 5 about',
       assignment: 'Subscribe a system with a specific subscription pool IDs (stacking multiple)',
-      tip: "<p>Try typing <code>subscription-manager</code> to see the full list of accepted arguments</p>",
       command_expected: ['subscription-manager', 'attach', '--pool='],
       result: "<p>Correct</p>"
     });
 
     q.push({
-      html: '<h3>Blah blah #6</h3>RHSM Step 6',
+      about: 'Step 6 about',
       assignment: 'Unsubscribe all system subscriptions',
       tip: "<p>Try typing <code>subscription-manager</code> to see the full list of accepted arguments</p>",
       command_expected: ['subscription-manager', 'remove', '--all'],
@@ -89,9 +96,8 @@
     });
 
     q.push({
-      html: '<h3>Blah blah #7</h3>RHSM Step 7',
+      about: 'Step 7 about',
       assignment: 'Unsubscribe a specific subscription serial',
-      tip: "<p>Try typing <code>subscription-manager</code> to see the full list of accepted arguments</p>",
       command_expected: ['subscription-manager', 'remove', '--serial='],
       result: "<p>Correct</p>"
     });
@@ -101,7 +107,7 @@
   function about() {
     var q = [];
     q.push({
-      html: '<h3>Blah blah #1</h3>RHSM Step 1',
+      about: 'Step 1 about',
       assignment: 'Get subscription manager identity',
       tip: "<p>Try typing <code>subscription-manager</code> to see the full list of accepted arguments</p>",
       command_expected: ['subscription-manager', 'identity'],
@@ -109,15 +115,14 @@
     });
 
     q.push({
-      html: '<h3>Blah blah #2</h3>RHSM Step 2',
+      about: 'Step 2 about',
       assignment: 'List consumed subscriptions',
-      tip: "<p>Try typing <code>subscription-manager</code> to see the full list of accepted arguments</p>",
       command_expected: ['subscription-manager', 'list', '--consumed'],
       result: "<p>Correct</p>"
     });
 
     q.push({
-      html: '<h3>Blah blah #3</h3>RHSM Step 3',
+      about: 'Step 3 about',
       assignment: 'Configuring subscription manager behavior',
       tip: "<p>Try typing <code>subscription-manager</code> to see the full list of accepted arguments</p>",
       command_expected: ['subscription-manager', 'config', '--server.hostname=subscription.example.com'],
@@ -130,15 +135,14 @@
   function repos() {
     var q = [];
     q.push({
-      html: '<h3>Blah blah #1</h3>RHSM Step 1',
+      about: 'Step 1 about',
       assignment: 'List available repositories',
-      tip: "<p>Try typing <code>subscription-manager</code> to see the full list of accepted arguments</p>",
       command_expected: ['subscription-manager', 'repos', '--list'],
       result: "<p>Correct</p>"
     });
 
     q.push({
-      html: '<h3>Blah blah #2</h3>RHSM Step 2',
+      about: 'Step 2 about',
       assignment: 'Enabling a repository',
       tip: "<p>Try typing <code>subscription-manager</code> to see the full list of accepted arguments</p>",
       command_expected: ['subscription-manager', 'repos', '--enable', 'rhel-6-server-optional-rpms'],
@@ -146,9 +150,8 @@
     });
 
     q.push({
-      html: '<h3>Blah blah #3</h3>RHSM Step 2',
+      about: 'Step 3 about',
       assignment: 'Disabling a repository',
-      tip: "<p>Try typing <code>subscription-manager</code> to see the full list of accepted arguments</p>",
       command_expected: ['subscription-manager', 'repos', '--disable', 'rhel-6-server-optional-rpms'],
       result: "<p>Correct</p>"
     });
